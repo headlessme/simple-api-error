@@ -1,0 +1,19 @@
+{
+  "name": "simple-api-error",
+  "version": "0.0.1",
+  "description": "Simple API Error class with status code and middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/headlessme/simple-api-error.git"
+  },
+  "author": "Andy Pritchard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/headlessme/simple-api-error/issues"
+  },
+  "homepage": "https://github.com/headlessme/simple-api-error#readme"
+}
