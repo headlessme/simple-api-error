@@ -3,10 +3,11 @@ const APIError = require('./APIError');
 
 const options = {
     log: function(status, req, err) {
+        const context = err.errorContext ? util.inspect(err.errorContext, {breakLength:Infinity}) : undefined;
         if (status === 500) {
-            console.error(req.method, req.url, status, err.message, err.stack);
+            console.error(req.method, req.url, status, err.message, err.stack, context);
         } else {
-            console.warn(req.method, req.url, status, err.message);
+            console.warn(req.method, req.url, status, err.message, context);
         }
     }
 };
@@ -24,10 +25,9 @@ module.exports.error = function(err, req, res, next){
 
     res.status(status).send({
         type: 'Error',
-        error: true,
         statusCode: status,
         message: err.message,
-        id: err.errorid,
+        id: err.errorId,
         url: req.originalUrl
     });
 

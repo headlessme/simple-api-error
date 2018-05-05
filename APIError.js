@@ -1,11 +1,16 @@
 const util = require('util');
 
-function APIError(message, statusCode, id) {
+function APIError(id, statusCode, message) {
     Error.captureStackTrace(this, this.constructor);
     this.name = this.constructor.name;
-    this.errorid = id;
+    this.errorId = id;
     this.message = message;
     this.httpStatusCode = statusCode;
+}
+
+APIError.prototype.context = function(context) {
+    this.errorContext = Object.assign({}, this.errorContext, context);
+    return this;
 }
 
 util.inherits(APIError, Error);
