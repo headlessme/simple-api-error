@@ -13,7 +13,7 @@ const options = {
 
 // 404 handler
 module.exports.notFound = function(req, res, next){
-    return next(new APIError('not found', 404));
+    return next(new APIError('not found', 404, 'not_found'));
 };
 
 // other errors
@@ -23,9 +23,11 @@ module.exports.error = function(err, req, res, next){
         status = err.httpStatusCode || 500;
 
     res.status(status).send({
+        type: 'Error',
         error: true,
         statusCode: status,
         message: err.message,
+        id: err.errorid,
         url: req.originalUrl
     });
 
