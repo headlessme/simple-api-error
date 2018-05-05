@@ -28,7 +28,8 @@ module.exports.error = function(err, req, res, next){
         statusCode: status,
         message: err.message,
         id: err.errorId,
-        url: req.originalUrl
+        url: req.originalUrl,
+        context: err.errorContext
     });
 
     options.log(status, req, err);
