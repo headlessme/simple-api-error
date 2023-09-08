@@ -1,6 +1,6 @@
 {
   "name": "simple-api-error",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Simple API Error class with status code and middleware",
   "main": "index.js",
   "scripts": {
